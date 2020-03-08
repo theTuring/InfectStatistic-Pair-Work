@@ -1,5 +1,9 @@
 package com.springboot.service;
 
+import com.springboot.domain.Province;
+
+import java.util.List;
+
 /**
  * ProvinceService
  * TODO
@@ -8,6 +12,10 @@ package com.springboot.service;
  * @version v 1.0.0
  * @since 2020.3.8
  */
-public class ProvinceService {
+public interface ProvinceService {
+
+    List<Province> getAllProvince();
+
+    int insertProvince(Province province);
 }
     

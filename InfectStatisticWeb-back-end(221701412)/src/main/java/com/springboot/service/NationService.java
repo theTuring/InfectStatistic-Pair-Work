@@ -1,5 +1,9 @@
 package com.springboot.service;
 
+import com.springboot.domain.Nation;
+
+import java.util.List;
+
 /**
  * NationService
  * TODO
@@ -8,6 +12,9 @@ package com.springboot.service;
  * @version v 1.0.0
  * @since 2020.3.8
  */
-public class NationService {
+public interface NationService {
+
+    List<Nation> getAllNation();
+
 }
     

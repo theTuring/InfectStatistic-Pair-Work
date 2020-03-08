@@ -1,5 +1,11 @@
 package com.springboot.mapper;
 
+import com.springboot.domain.Nation;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
 /**
  * NationMapper
  * TODO
@@ -8,6 +14,12 @@ package com.springboot.mapper;
  * @version v 1.0.0
  * @since 2020.3.8
  */
-public class NationMapper {
+@Mapper
+public interface NationMapper {
+
+    //查询全部
+    @Select("select * from nation")
+    List<Nation> getAllNation();
+
 }
     
