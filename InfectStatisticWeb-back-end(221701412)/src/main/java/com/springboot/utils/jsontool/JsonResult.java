@@ -6,6 +6,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 
 /**
+ * JsonResult
+ * TODO
+ * @description 返回Json结果的工具类
+ * @author 221701412_theTuring
+ * @version v 1.0.0
+ * @since
+ */
+/**
   *               200：表示成功
   *               500：表示错误，错误信息在msg字段中
   *               501：bean验证错误，不管多少个错误都以map形式返回

@@ -3,6 +3,14 @@ package com.springboot.utils.datetool;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * DateResult
+ * TODO
+ * @description 返回日期结果的工具类
+ * @author 221701412_theTuring
+ * @version v 1.0.0
+ * @since
+ */
 public class DateResult {
 
     //获取当前时间
