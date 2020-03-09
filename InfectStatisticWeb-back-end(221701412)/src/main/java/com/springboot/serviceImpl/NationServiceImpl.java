@@ -30,5 +30,13 @@ public class NationServiceImpl implements NationService {
         return list;
 
     }
+
+    @Override
+    public Nation queryNationByDate(String date){
+
+        Nation nation = this.nationMapper.queryNationByDate(date);
+
+        return nation;
+    }
 }
     

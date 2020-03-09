@@ -8,6 +8,7 @@ import com.springboot.service.ProvinceService;
 import com.springboot.utils.jsontool.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,9 +20,10 @@ import java.util.List;
  * @description 所有的get请求的接口
  * 1./api/query/nation/all 查询全部的国家统计信息
  * 2./api/query/province/all 查询全部的国家省份统计信息
- * 3./api/init/province/all 初始化所有的省份状态(后端测试用非前端使用)
+ * 3./api/init/province/all 初始化所有的省份状态(后端测试用前端勿用)
  * 将所有省份置为"date":"1970-1-1","current_diagnosis":0,"cumulative_diagnosis":0,"suspected":0,"cured":0,"acute":0,"dead":0
- * 4.
+ * 4./api/query/nation/date/{date} 根据日期查询国家统计信息，返回国家实体
+ * 5./api/query/province/date/province/{date}/{province} 根据日期和省份名查询国家省份统计信息，返回省份实体
  * @author 221701412_theTuring
  * @version v 1.0.0
  * @since 2020.3.8
@@ -83,5 +85,25 @@ public class GetController implements ProvinceConstant{
 
     }
 
+    //mysql单类型查询()
+    @RequestMapping("query/nation/date/{date}")
+    public JsonResult queryNationByDate(@PathVariable String date) {
+
+        Nation nation = this.nationService.queryNationByDate(date);
+
+        return JsonResult.ok(nation);
+
+    }
+
+    //mysql单类型查询()
+    @RequestMapping("query/province/date/province/{date}/{province}")
+    public JsonResult queryProvinceByBoth(@PathVariable String date,
+                                          @PathVariable String province) {
+
+        Province province1 = this.provinceService.queryEvRecordByBoth(province, date);
+
+        return JsonResult.ok(province1);
+
+    }
 
 }

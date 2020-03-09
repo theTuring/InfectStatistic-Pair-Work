@@ -13,7 +13,7 @@ import java.util.List;
  * PostController
  * TODO
  * @description 所有的post请求的接口
- * 1./api/province/insert 添加新共享车辆用接口
+ * 1./api/province/insert 添加新省份用接口
  * @author 221701412_theTuring
  * @version v 1.0.0
  * @since

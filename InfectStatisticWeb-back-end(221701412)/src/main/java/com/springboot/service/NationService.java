@@ -16,5 +16,7 @@ public interface NationService {
 
     List<Nation> getAllNation();
 
+    Nation queryNationByDate(String date);
+
 }
     

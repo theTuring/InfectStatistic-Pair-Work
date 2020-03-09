@@ -5,6 +5,7 @@ import com.springboot.domain.Province;
 import com.springboot.mapper.NationMapper;
 import com.springboot.mapper.ProvinceMapper;
 import com.springboot.service.ProvinceService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,5 +43,12 @@ public class ProvinceServiceImpl implements ProvinceService {
 
     }
 
+    @Override
+    public Province queryEvRecordByBoth(@Param("province") String province, @Param("date") String date){
+
+        Province province1 = this.provinceMapper.queryEvRecordByBoth(province,date);
+
+        return province1;
+    }
 }
     

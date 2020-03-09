@@ -21,5 +21,9 @@ public interface NationMapper {
     @Select("select * from nation")
     List<Nation> getAllNation();
 
+    //日期date查找
+    @Select("SELECT * FROM nation WHERE date =#{date}")
+    Nation queryNationByDate(String date);
+
 }
     

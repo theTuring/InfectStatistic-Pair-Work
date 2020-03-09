@@ -1,6 +1,7 @@
 package com.springboot.service;
 
 import com.springboot.domain.Province;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ import java.util.List;
 public interface ProvinceService {
 
     List<Province> getAllProvince();
+
+    Province queryEvRecordByBoth(@Param("province") String province, @Param("date") String date);
 
     int insertProvince(Province province);
 }

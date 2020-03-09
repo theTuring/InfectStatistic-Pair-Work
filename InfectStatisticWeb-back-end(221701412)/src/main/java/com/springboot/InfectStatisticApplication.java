@@ -34,11 +34,11 @@ public class InfectStatisticApplication extends SpringBootServletInitializer{
 
     }
 
-//    @Override
-//    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
-//        return builder.sources(InfectStatisticApplication.class);
-//    }
-//
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+        return builder.sources(InfectStatisticApplication.class);
+    }
+
 //    /**
 //     * 显示声明CommonsMultipartResolver为mutipartResolver
 //     */
