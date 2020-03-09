@@ -1,0 +1,22 @@
+ *{margin:0;padding:0}
+html,body{
+    width:100%;
+    height:100%;
+}
+#main{
+    display: flex;
+    flex-direction: column;
+}
+#map{
+    width:600px;
+    height:450px;
+    margin: 150px auto;
+    border:1px solid #ddd;
+}
+/*默认长宽比0.75*/
+#chart{
+    width:600px;
+    height:450px;
+    margin: 150px auto;
+    border:1px solid #ddd;
+}
