@@ -10,6 +10,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * NationDao
+ * TODO
+ * @description dao层
+ * @author 221701412_theTuring
+ * @version v 1.0.0
+ * @since
+ */
 public class NationDao {
 
     //添加国家统计信息

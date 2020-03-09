@@ -6,6 +6,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * DBUtil
+ * TODO
+ * @description 数据库连接驱动类
+ * @author 221701412_theTuring
+ * @version v 1.0.0
+ * @since 2020.3.9
+ */
 public class DBUtil {
 
     //mysql的url

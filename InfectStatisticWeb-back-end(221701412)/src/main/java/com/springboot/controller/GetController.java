@@ -27,6 +27,7 @@ import java.util.List;
  * 5./api/query/province/date/province/{date}/{province} 根据日期和省份名查询国家省份统计信息，返回省份实体
  * 6./api/query/province/city/all 直接查询查看即时的国家省份城市统计信息（api获取）
  * 7./api/query/news 直接查询即时热点信息（api获取）
+ * 8./api/query/nation/increase/{date} 根据日期查询国家统计信息，返回国家当日增加实体
  * @author 221701412_theTuring
  * @version v 1.0.0
  * @since 2020.3.8
@@ -130,6 +131,38 @@ public class GetController implements ProvinceConstant{
         String temp = httpRequest.sendGet("http://api.tianapi.com/txapi/ncov/index?key=6e07e5626fdebe0394ff896b6bdb52a3");
 
         return temp;
+
+    }
+
+    //mysql单类型查询()
+    @RequestMapping("query/nation/increase/{date}")
+    public JsonResult queryNationIncreaseByDate(@PathVariable String date) {
+
+        List<Nation> list = this.nationService.getAllNation();
+
+        Nation nation = this.nationService.queryNationByDate(date);
+
+        Nation increase_nation = new Nation();
+
+        int temp = 0;
+
+        for(int i=0; i<list.size(); i++){
+
+            if(nation.getDate().equals(list.get(i).getDate())){
+                temp = i-1;
+            }
+
+        }
+
+        increase_nation.setDate(date);
+        increase_nation.setCurrent_diagnosis(nation.getCurrent_diagnosis()-list.get(temp).getCurrent_diagnosis());
+        increase_nation.setCumulative_diagnosis(nation.getCumulative_diagnosis()-list.get(temp).getCumulative_diagnosis());
+        increase_nation.setAcute(nation.getAcute()-list.get(temp).getAcute());
+        increase_nation.setSuspected(nation.getSuspected()-list.get(temp).getSuspected());
+        increase_nation.setCured(nation.getCured()-list.get(temp).getCured());
+        increase_nation.setDead(nation.getDead()-list.get(temp).getDead());
+
+        return JsonResult.ok(increase_nation);
 
     }
 

@@ -4,9 +4,11 @@ import com.google.gson.Gson;
 import com.springboot.domain.JsonResultProvince;
 import com.springboot.domain.JsonResultProvinceList;
 import com.springboot.domain.Nation;
+import com.springboot.domain.Province;
 import com.springboot.mapper.NationMapper;
 import com.springboot.service.NationService;
 import com.springboot.utils.mysqltool.dao.NationDao;
+import com.springboot.utils.mysqltool.dao.ProvinceDao;
 import com.springboot.utils.urltool.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -50,12 +52,32 @@ public class AnalysisJson {
         //国家实体实例化
         Nation nation = new Nation();
 
+        //国家省份实体实例化
+        Province province = new Province();
+
+        ProvinceDao provinceDao = new ProvinceDao();
+
+        //date日期格式控制为日期格式，精确到日 2017-4-16
+        DateFormat df1 = DateFormat.getDateInstance();
+
         List<JsonResultProvince> list = ProvinceJson();
 
         for (int i=0; i<list.size(); i++){
 
-            //date日期格式控制为日期格式，精确到日 2017-4-16
-            DateFormat df1 = DateFormat.getDateInstance();
+            //国家省份
+            province.setProvince(list.get(i).getProvinceShortName());
+            province.setDate(df1.format(new Date()));
+            province.setCurrent_diagnosis(list.get(i).getCurrentConfirmedCount());
+            province.setSuspected(list.get(i).getSuspectedCount());
+            province.setCured(list.get(i).getCuredCount());
+            //暂时无法获得重症消息(前段时间国家要求疑似全转确诊)
+            province.setAcute(0);
+            province.setDead(list.get(i).getDeadCount());
+
+            //插入
+            provinceDao.addProvince(province);
+
+            //国家
             nation.setDate(df1.format(new Date()));
             nation.setCurrent_diagnosis(nation.getCurrent_diagnosis()+list.get(i).getCurrentConfirmedCount());
             nation.setCumulative_diagnosis(nation.getCumulative_diagnosis()+list.get(i).getConfirmedCount());
