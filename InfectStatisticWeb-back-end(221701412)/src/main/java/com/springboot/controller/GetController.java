@@ -6,6 +6,7 @@ import com.springboot.domain.Province;
 import com.springboot.service.NationService;
 import com.springboot.service.ProvinceService;
 import com.springboot.utils.jsontool.JsonResult;
+import com.springboot.utils.urltool.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,8 @@ import java.util.List;
  * 将所有省份置为"date":"1970-1-1","current_diagnosis":0,"cumulative_diagnosis":0,"suspected":0,"cured":0,"acute":0,"dead":0
  * 4./api/query/nation/date/{date} 根据日期查询国家统计信息，返回国家实体
  * 5./api/query/province/date/province/{date}/{province} 根据日期和省份名查询国家省份统计信息，返回省份实体
+ * 6./api/query/province/city/all 直接查询查看即时的国家省份城市统计信息（api获取）
+ * 7./api/query/news 直接查询即时热点信息（api获取）
  * @author 221701412_theTuring
  * @version v 1.0.0
  * @since 2020.3.8
@@ -103,6 +106,30 @@ public class GetController implements ProvinceConstant{
         Province province1 = this.provinceService.queryEvRecordByBoth(province, date);
 
         return JsonResult.ok(province1);
+
+    }
+
+    //api单类型查询()
+    @RequestMapping("query/province/city/all")
+    public String queryProvinceCityAll() {
+
+        HttpRequest httpRequest = new HttpRequest();
+
+        String temp = httpRequest.sendGet("http://api.tianapi.com/txapi/ncovcity/index?key=6e07e5626fdebe0394ff896b6bdb52a3");
+
+        return temp;
+
+    }
+
+    //api单类型查询()
+    @RequestMapping("query/news")
+    public String queryNews() {
+
+        HttpRequest httpRequest = new HttpRequest();
+
+        String temp = httpRequest.sendGet("http://api.tianapi.com/txapi/ncov/index?key=6e07e5626fdebe0394ff896b6bdb52a3");
+
+        return temp;
 
     }
 

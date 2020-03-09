@@ -1,7 +1,7 @@
 # InfectStatistic-Pair-Work
 InfectStatistic-Pair-Work of 221701412 and 221701420
 
-+ 本次后端开发使用maven + springboot + web magic 进行开发
++ 本次后端开发使用maven + springboot + ~~web magic~~(更改思路直接爬取api的数据) 进行开发
 
 + 使用SpringBoot的推荐项目目录结构
     + 代码层的结构
