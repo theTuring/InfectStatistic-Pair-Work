@@ -18,5 +18,7 @@ public interface NationService {
 
     Nation queryNationByDate(String date);
 
+    int insertNation(Nation nation);
+
 }
     

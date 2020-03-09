@@ -1,6 +1,7 @@
 package com.springboot.serviceImpl;
 
 import com.springboot.domain.Nation;
+import com.springboot.domain.Province;
 import com.springboot.mapper.NationMapper;
 import com.springboot.service.NationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,15 @@ public class NationServiceImpl implements NationService {
         Nation nation = this.nationMapper.queryNationByDate(date);
 
         return nation;
+    }
+
+    @Override
+    public int insertNation(Nation nation){
+
+        int temp = this.nationMapper.insertNation(nation);
+
+        return temp;
+
     }
 }
     

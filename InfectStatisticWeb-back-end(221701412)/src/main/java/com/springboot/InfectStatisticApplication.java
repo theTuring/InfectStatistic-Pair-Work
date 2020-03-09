@@ -1,5 +1,7 @@
 package com.springboot;
 
+import com.springboot.domain.Nation;
+import com.springboot.utils.jsontool.AnalysisJson;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +14,11 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * InfectStatisticApplication
@@ -29,6 +36,28 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class InfectStatisticApplication extends SpringBootServletInitializer{
 
     public static void main(String[] args) {
+
+        // 创建定时器
+        Timer timer = new Timer();
+
+        timer.schedule(new TimerTask() {
+            // 在run方法中的语句就是定时任务执行时运行的语句。
+            public void run() {
+
+                //json解析类实例化
+                AnalysisJson analysisJson = new AnalysisJson();
+
+                try {
+                    analysisJson.TimerExecute();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+            // 表示在3秒之后开始执行，并且每8640秒（一天）执行一次
+        }, 3000, 86400000);
+
 
         SpringApplication.run(InfectStatisticApplication.class, args);
 
