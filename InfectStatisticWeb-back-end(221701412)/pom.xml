@@ -7,7 +7,9 @@
     <groupId>org.example</groupId>
     <artifactId>InfectStatistic</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
 
+    <!--spring boot依赖-->
     <parent>
 
         <groupId>org.springframework.boot</groupId>
@@ -20,79 +22,143 @@
 
     <dependencies>
 
-    <dependency>
+        <dependency>
 
-        <groupId>org.springframework.boot</groupId>
+            <groupId>org.springframework.boot</groupId>
 
-        <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
 
-        <version>1.4.4.RELEASE</version>
+            <version>1.4.4.RELEASE</version>
 
-    </dependency>
+        </dependency>
 
-    <!--springboot热部署-->
-    <dependency>
+        <!--springboot热部署-->
+        <dependency>
 
-        <groupId>org.springframework.boot</groupId>
+            <groupId>org.springframework.boot</groupId>
 
-        <artifactId>spring-boot-devtools</artifactId>
+            <artifactId>spring-boot-devtools</artifactId>
 
-        <version>1.4.4.RELEASE</version>
+            <version>1.4.4.RELEASE</version>
 
-    </dependency>
+        </dependency>
 
-    <dependency>
+        <dependency>
 
-        <groupId>org.springframework.boot</groupId>
+            <groupId>org.springframework.boot</groupId>
 
-        <artifactId>spring-boot-devtools</artifactId>
+            <artifactId>spring-boot-devtools</artifactId>
 
-        <optional>true</optional>
+            <optional>true</optional>
 
-        <scope>true</scope>
-    </dependency>
+            <scope>true</scope>
+        </dependency>
 
-    <dependency>
+        <dependency>
 
-        <groupId>org.springframework.boot</groupId>
+            <groupId>org.springframework.boot</groupId>
 
-        <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
 
-        <version>1.4.4.RELEASE</version>
+            <version>1.4.4.RELEASE</version>
 
-    </dependency>
+        </dependency>
 
-    <dependency>
+        <dependency>
 
-        <groupId>mysql</groupId>
+            <groupId>mysql</groupId>
 
-        <artifactId>mysql-connector-java</artifactId>
+            <artifactId>mysql-connector-java</artifactId>
 
-        <version>8.0.15</version>
+            <version>8.0.15</version>
 
-    </dependency>
+        </dependency>
 
-    <!--访问静态资源-->
-    <dependency>
+        <!--访问静态资源-->
+        <dependency>
 
-        <groupId>org.springframework.boot</groupId>
+            <groupId>org.springframework.boot</groupId>
 
-        <artifactId>spring-boot-starter-thymeleaf</artifactId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
 
-    </dependency>
+        </dependency>
 
-    <!-- SpringBoot的Mybatis启动器 -->
+        <!-- SpringBoot的Mybatis启动器 -->
 
-    <dependency>
+        <dependency>
 
-        <groupId>org.mybatis.spring.boot</groupId>
+            <groupId>org.mybatis.spring.boot</groupId>
 
-        <artifactId>mybatis-spring-boot-starter</artifactId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
 
-        <version>1.1.1</version>
+            <version>1.1.1</version>
 
-    </dependency>
+        </dependency>
+
+
+        <!-- 文件上传组件 -->
+        <dependency>
+
+            <groupId>commons-fileupload</groupId>
+
+            <artifactId>commons-fileupload</artifactId>
+
+            <version>1.3.1</version>
+
+        </dependency>
+
+        <!-- 图片处理类 -->
+        <dependency>
+
+            <groupId>net.coobird</groupId>
+
+            <artifactId>thumbnailator</artifactId>
+
+            <version>0.4.8</version>
+
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-web</artifactId>-->
+<!--            &lt;!&ndash; 移除嵌入式tomcat插件 &ndash;&gt;-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>org.springframework.boot</groupId>-->
+<!--                    <artifactId>spring-boot-starter-tomcat</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>javax.servlet</groupId>-->
+<!--            <artifactId>javax.servlet-api</artifactId>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.5</version>
+        </dependency>
+
+        <!-- apache -->
+        <dependency>
+            <groupId>org.wso2.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.1.wso2v1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
+
 
     </dependencies>
+
 
 </project>

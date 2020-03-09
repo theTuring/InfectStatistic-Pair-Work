@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -58,7 +59,7 @@ public class AnalysisJson {
         ProvinceDao provinceDao = new ProvinceDao();
 
         //date日期格式控制为日期格式，精确到日 2017-4-16
-        DateFormat df1 = DateFormat.getDateInstance();
+        SimpleDateFormat df1 = new SimpleDateFormat("yyyy-MM-dd");
 
         List<JsonResultProvince> list = ProvinceJson();
 

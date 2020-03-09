@@ -1,7 +1,9 @@
 package com.springboot.utils.datetool;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * DateResult
@@ -22,8 +24,15 @@ public class DateResult {
 
     }
 
-   /* public static void main(String[] args) {
+    public  Date moveTime(Date date, int day){
+        Calendar calendar   =   new GregorianCalendar();
+        calendar.setTime(date);
+        calendar.add(calendar.DATE,day);//把日期往后增加一天.整数往后推,负数往前移动
+        return calendar.getTime();   //这个时间就是日期往后推一天的结果
+    }
 
-        System.out.println(getCurrentTime());// new Date()为获取当前系统时间
-    }*/
+//    public static void main(String[] args) {
+//
+//        System.out.println(moveTime(new Date(),-1));// new Date()为获取当前系统时间
+//    }
 }

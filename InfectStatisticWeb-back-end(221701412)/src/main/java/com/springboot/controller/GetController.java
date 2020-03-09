@@ -5,6 +5,7 @@ import com.springboot.domain.Nation;
 import com.springboot.domain.Province;
 import com.springboot.service.NationService;
 import com.springboot.service.ProvinceService;
+import com.springboot.utils.datetool.DateResult;
 import com.springboot.utils.jsontool.JsonResult;
 import com.springboot.utils.urltool.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,6 +32,7 @@ import java.util.List;
  * 6./api/query/province/city/all 直接查询查看即时的国家省份城市统计信息（api获取）
  * 7./api/query/news 直接查询即时热点信息（api获取）
  * 8./api/query/nation/increase/{date} 根据日期查询国家统计信息，返回国家当日增加实体
+ * 9./api/query/province/increase/{date}/{province} 根据日期查询国家省份统计信息，返回对应省份当日增加实体
  * @author 221701412_theTuring
  * @version v 1.0.0
  * @since 2020.3.8
@@ -163,6 +168,42 @@ public class GetController implements ProvinceConstant{
         increase_nation.setDead(nation.getDead()-list.get(temp).getDead());
 
         return JsonResult.ok(increase_nation);
+
+    }
+
+    //mysql单类型查询()
+    @RequestMapping("query/province/increase/{date}/{province}")
+    public JsonResult queryProvinceIncreaseByDate(@PathVariable String date,
+                                                  @PathVariable String province) throws ParseException {
+
+        DateResult dateResult = new DateResult();
+
+        SimpleDateFormat sdf = new SimpleDateFormat( "yyyy-MM-dd" );
+
+        Province province1 = this.provinceService.queryEvRecordByBoth(province, date);
+
+        Date temp = sdf.parse(date);
+
+        System.out.println(temp);
+
+        String str = sdf.format(dateResult.moveTime(temp,-1));
+
+        System.out.println(str);
+
+        Province province2 = this.provinceService.queryEvRecordByBoth(province, str);
+
+        Province increase_province = new Province();
+
+        increase_province.setProvince(province);
+        increase_province.setDate(date);
+        increase_province.setCurrent_diagnosis(province1.getCurrent_diagnosis()-province2.getCurrent_diagnosis());
+        increase_province.setCumulative_diagnosis(province1.getCumulative_diagnosis()-province2.getCumulative_diagnosis());
+        increase_province.setAcute(province1.getAcute()-province2.getAcute());
+        increase_province.setSuspected(province1.getSuspected()-province2.getSuspected());
+        increase_province.setCured(province1.getCured()-province2.getCured());
+        increase_province.setDead(province1.getDead()-province2.getDead());
+
+        return JsonResult.ok(increase_province);
 
     }
 
