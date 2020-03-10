@@ -6,21 +6,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <link type="text/css" rel="stylesheet" href="css/main.css"/>
+    <link type="text/css" rel="stylesheet" href="css/dataShow.css"/>
     <script src="script/lib/ercharts/dist/echarts.js"></script>
     <script src="script/lib/ercharts/map/js/china.js"></script>
 
 </head>
 <body>
+    <div id="header"></div>
+    <div id="timeSet">
+        <select>
+            <option>年</option>
+        </select>
+        <select>
+            <option>月</option>
+        </select>
+        <select>
+            <option>日</option>
+        </select>
+    </div>
     <div id="main">
-        <div id="map">
-
-        </div>
-        <div id="chart">
+        <div class="apart">
+            <div id="totalData" class="">
+                <div>
+                    <div>现有确诊</div>
+                    <div id=""></div>
+                </div>
+                <div>
+                    <div>现有疑似</div>
+                    <div id=""></div>
+                </div>
+                <div>
+                    <div>现有重症</div>
+                    <div id=""></div>
+                </div>
+                <div>
+                    <div>累计确诊</div>
+                    <div id=""></div>
+                </div>
+                <div>
+                    <div>累计治愈</div>
+                    <div id=""></div>
+                </div>
+                <div>
+                    <div>累计死亡</div>
+                    <div id=""></div>
+                </div>
+            </div>
+            <div id="map">
     
+            </div>
         </div>
+       
+        <div class="apart">
+            <div id="provinceData" class="">
+                <div>
+                    <div>现有确诊</div>
+                    <div id=""></div>
+                </div>
+                <div>
+                    <div>累计确诊</div>
+                    <div id=""></div>
+                </div>
+                <div>
+                    <div>累计治愈</div>
+                    <div id=""></div>
+                </div>
+                <div>
+                    <div>累计死亡</div>
+                    <div id=""></div>
+                </div>
+            </div>
+    
+            <div id="chart">
+        
+            </div>
+        </div>
+        
+        <div class="hot">
+            
+        </div>
+
+     
+      
+
+
     </div>
    
     <script type="text/javascript" src="script/map.js"></script>
     <script type="text/javascript" src="script/chart.js"></script>
+    <script type="text/javascript" src="script/index.js"></script>
 </body>
 </html>

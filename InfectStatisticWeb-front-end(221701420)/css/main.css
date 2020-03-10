@@ -1,22 +1,53 @@
- *{margin:0;padding:0}
-html,body{
-    width:100%;
-    height:100%;
+html{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: lavenderblush;
+    width: 100%;
+    
+}
+#header{
+    width: 100%;
+    height: 300px;
+    background-color: red;
+    background-image: url("../img/D65{~ST_UAG3UI9696Y\)YJ8.png");
 }
 #main{
+    width: 50%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border:1px solid #ddd;
+    padding: 0 25%;
 }
 #map{
     width:600px;
-    height:450px;
-    margin: 150px auto;
+    height: 450px;
+    margin-top: 10px;
     border:1px solid #ddd;
 }
 /*默认长宽比0.75*/
 #chart{
     width:600px;
     height:450px;
-    margin: 150px auto;
+    margin-top: 50px;
     border:1px solid #ddd;
+}
+#timeSet{
+    border: 1px solid wheat;
+    background-color: wheat;
+    width: 200px;
+    height: 50px;
+    left: 20px;
+    position: fixed;
+}
+
+.apart{
+    margin:20px 0px;
+    border: 1px solid black;
+
 }
