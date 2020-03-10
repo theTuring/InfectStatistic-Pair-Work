@@ -28,6 +28,10 @@ public interface ProvinceMapper {
     @Select("SELECT * FROM province WHERE province =#{province} AND date =#{date}")
     Province queryEvRecordByBoth(@Param("province") String province, @Param("date") String date);
 
+    //日期date查找
+    @Select("SELECT * FROM province WHERE date =#{date}")
+    List<Province> queryEvRecordByDate(String date);
+
     //添加省份统计信息
     @Insert("INSERT INTO province (province, date, current_diagnosis, cumulative_diagnosis, suspected, cured, acute, dead) "
             + "VALUES (#{province}, #{date}, #{current_diagnosis}, #{cumulative_diagnosis}, #{suspected}, #{cured}, #{acute}, #{dead})")

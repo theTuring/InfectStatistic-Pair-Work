@@ -19,6 +19,8 @@ public interface ProvinceService {
 
     Province queryEvRecordByBoth(@Param("province") String province, @Param("date") String date);
 
+    List<Province> queryEvRecordByDate(String date);
+
     int insertProvince(Province province);
 }
     
