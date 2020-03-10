@@ -1,4 +1,5 @@
-var dataList=[
+function setMap(){
+    var dataList=[
             {name:"南海诸岛",value:0},
             {name: '北京', value: randomValue()},
             {name: '天津', value: randomValue()},
@@ -109,3 +110,4 @@ var dataList=[
                 ]
             });
         },1000)*/
+}

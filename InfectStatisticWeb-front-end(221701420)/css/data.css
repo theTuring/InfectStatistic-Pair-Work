@@ -1,0 +1,24 @@
+#dataShow{
+    display: flex;
+    flex-direction: column;
+}
+#dataSum{
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding: 0;
+}
+#dataSum>div{
+    margin: 10px;
+    width: 150px;
+    height: 70px;
+    border: 1px solid black; 
+    
+}
+#dataSum>div>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+}

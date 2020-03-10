@@ -45,14 +45,7 @@
 	}
 	window.inBike.rideway = rideway;
 ```
-+ 绑定事件代码需要放置在dom ready函数中执行
 
-```
-	$(function() {
-		 //bind function is in the init function
-		 window.inBike.rideway.init();
-	})
-```
 + 将自定义模块方法放置在对象中，方法名紧挨":"，":"与function之间空一格，function()与后面的"{"之间空一格
 
 ```
@@ -81,7 +74,7 @@ var module = function() {
 		console.log('this is my log');
 	}
 ```
-###命名
+###函数，类命名
 + 通用原则可以参考[PhpGuideline PHP编码规范]
 + 使用驼峰法命名变量和方法名，首字母使用小写,对于类名首字母大写
 
