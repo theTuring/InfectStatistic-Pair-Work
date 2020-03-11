@@ -11,7 +11,7 @@ import java.util.GregorianCalendar;
  * @description 返回日期结果的工具类
  * @author 221701412_theTuring
  * @version v 1.0.0
- * @since
+ * @since 2020.3.10
  */
 public class DateResult {
 
@@ -24,7 +24,26 @@ public class DateResult {
 
     }
 
-    public  Date moveTime(Date date, int day){
+    //获取两日期差的天数
+    public int getBetweenDay(Date date1, Date date2) {
+        Calendar d1 = new GregorianCalendar();
+        d1.setTime(date1);
+        Calendar d2 = new GregorianCalendar();
+        d2.setTime(date2);
+        int days = d2.get(Calendar.DAY_OF_YEAR)- d1.get(Calendar.DAY_OF_YEAR);
+        System.out.println("days="+days);
+        int y2 = d2.get(Calendar.YEAR);
+        if (d1.get(Calendar.YEAR) != y2) {
+//			d1 = (Calendar) d1.clone();
+            do {
+                days += d1.getActualMaximum(Calendar.DAY_OF_YEAR);
+                d1.add(Calendar.YEAR, 1);
+            } while (d1.get(Calendar.YEAR) != y2);
+        }
+        return days;
+    }
+
+    public Date moveTime(Date date, int day){
         Calendar calendar   =   new GregorianCalendar();
         calendar.setTime(date);
         calendar.add(calendar.DATE,day);//把日期往后增加一天.整数往后推,负数往前移动

@@ -36,28 +36,28 @@ import java.util.TimerTask;
 @ServletComponentScan
 public class InfectStatisticApplication extends SpringBootServletInitializer{
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
-        // 创建定时器
-        Timer timer = new Timer();
-
-        timer.schedule(new TimerTask() {
-            // 在run方法中的语句就是定时任务执行时运行的语句。
-            public void run() {
-
-                //json解析类实例化
-                AnalysisJson analysisJson = new AnalysisJson();
-
-                try {
-                    analysisJson.TimerExecute();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-
-
-            }
-            // 表示在3秒之后开始执行，并且每8640秒（一天）执行一次
-        }, 3000, 8640000);
+//        // 创建定时器
+//        Timer timer = new Timer();
+//
+//        timer.schedule(new TimerTask() {
+//            // 在run方法中的语句就是定时任务执行时运行的语句。
+//            public void run() {
+//
+//                //json解析类实例化
+//                AnalysisJson analysisJson = new AnalysisJson();
+//
+//                try {
+//                    analysisJson.TimerExecute();
+//                } catch (SQLException e) {
+//                    e.printStackTrace();
+//                }
+//
+//
+//            }
+//            // 表示在3秒之后开始执行，并且每8640秒（一天）执行一次
+//        }, 3000, 8640000);
 
 
         SpringApplication.run(InfectStatisticApplication.class, args);
