@@ -20,5 +20,4 @@ layui.use('laydate', function(){
 //返回选项框的日期
 function dateFormat(){
    return document.getElementById("time").value;
-
 }

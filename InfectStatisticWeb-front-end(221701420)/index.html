@@ -74,9 +74,15 @@
                     <div id="provinceCumulativeDead"></div>
                 </div>
             </div>
-    
+            <input id="chartName"  type="text" disabled="disabled" value="新增感染者">
             <div id="chart">
-        
+                
+            </div>
+            <div>
+                <button onclick='changeChart("新增感染者")'>新增感染者</button>
+                <button onclick='changeChart("累计感染者")'>累计感染者</button>
+                <button onclick='changeChart("治愈")'>治愈</button>
+                <button onclick='changeChart("死亡")'>死亡</button>
             </div>
         </div>
         
