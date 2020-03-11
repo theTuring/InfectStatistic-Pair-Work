@@ -50,5 +50,13 @@ public class ProvinceServiceImpl implements ProvinceService {
 
         return province1;
     }
+
+    @Override
+    public List<Province> queryEvRecordByDate(String date){
+
+        List<Province> list = this.provinceMapper.queryEvRecordByDate(date);
+
+        return list;
+    }
 }
     

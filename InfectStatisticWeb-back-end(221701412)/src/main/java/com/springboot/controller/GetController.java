@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,13 +27,14 @@ import java.util.List;
  * 1./api/query/nation/all 查询全部的国家统计信息
  * 2./api/query/province/all 查询全部的国家省份统计信息
  * 3./api/init/province/all 初始化所有的省份状态(后端测试用前端勿用)
- * 将所有省份置为"date":"1970-1-1","current_diagnosis":0,"cumulative_diagnosis":0,"suspected":0,"cured":0,"acute":0,"dead":0
+ * 将所有省份置为"date":"1970-01-01","current_diagnosis":0,"cumulative_diagnosis":0,"suspected":0,"cured":0,"acute":0,"dead":0
  * 4./api/query/nation/date/{date} 根据日期查询国家统计信息，返回国家实体
  * 5./api/query/province/date/province/{date}/{province} 根据日期和省份名查询国家省份统计信息，返回省份实体
  * 6./api/query/province/city/all 直接查询查看即时的国家省份城市统计信息（api获取）
  * 7./api/query/news 直接查询即时热点信息（api获取）
  * 8./api/query/nation/increase/{date} 根据日期查询国家统计信息，返回国家当日增加实体
  * 9./api/query/province/increase/{date}/{province} 根据日期查询国家省份统计信息，返回对应省份当日增加实体
+ * 10./api/query/province/date/{date}
  * @author 221701412_theTuring
  * @version v 1.0.0
  * @since 2020.3.8
@@ -204,6 +206,16 @@ public class GetController implements ProvinceConstant{
         increase_province.setDead(province1.getDead()-province2.getDead());
 
         return JsonResult.ok(increase_province);
+
+    }
+
+    //mysql单类型查询()
+    @RequestMapping("query/province/date/{date}")
+    public JsonResult queryProvinceByDate(@PathVariable String date) {
+
+        List<Province> list = this.provinceService.queryEvRecordByDate(date);
+
+        return JsonResult.ok(list);
 
     }
 

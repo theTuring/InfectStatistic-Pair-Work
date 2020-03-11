@@ -25,7 +25,7 @@ public interface ProvinceConstant {
     int INIT_NUM = 0;
 
     //初始化日期
-    String INIT_DATE = "1970-1-1";
+    String INIT_DATE = "1970-01-01";
 
 }
     

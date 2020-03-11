@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.web.MultipartAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.multipart.MultipartResolver;
@@ -32,7 +33,7 @@ import java.util.TimerTask;
 @SpringBootApplication
 //exclude表示自动配置时不包括Multipart配置
 @EnableAutoConfiguration(exclude = {MultipartAutoConfiguration.class})
-
+@ServletComponentScan
 public class InfectStatisticApplication extends SpringBootServletInitializer{
 
     public static void main(String[] args) {

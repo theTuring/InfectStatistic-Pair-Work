@@ -69,6 +69,7 @@ public class AnalysisJson {
             province.setProvince(list.get(i).getProvinceShortName());
             province.setDate(df1.format(new Date()));
             province.setCurrent_diagnosis(list.get(i).getCurrentConfirmedCount());
+            province.setCumulative_diagnosis(list.get(i).getConfirmedCount());
             province.setSuspected(list.get(i).getSuspectedCount());
             province.setCured(list.get(i).getCuredCount());
             //暂时无法获得重症消息(前段时间国家要求疑似全转确诊)
