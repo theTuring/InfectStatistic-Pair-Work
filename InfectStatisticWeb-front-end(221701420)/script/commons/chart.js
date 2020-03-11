@@ -1,6 +1,6 @@
 function setChart(){
 
-    var date=dateFormat;
+    var date=dateFormat();
     province=document.getElementById("province").innerHTML;
   
     //初始化图表
@@ -92,8 +92,11 @@ function setChart(){
     });    
    //根据日期获取指定省份情况的情况
    var dataList=new Array();
+   diagnosisChange();
     for(var i=0;i<12;i++){
-        diagnosisChange();
+        if(sessionStorage.getItem('currentDiagnosis')<0){
+            sessionStorage.getItem('currentDiagnosis')=0;
+        }
         dataList[i]=sessionStorage.getItem('currentDiagnosis');
     }
     option.series[0].data = dataList;
