@@ -1,11 +1,24 @@
-//根据时间设置
-function timeChange(){
-    var year=document.getElementById("year").value;
-    var month=document.getElementById("month").value;
-    var day=document.getElementById("day").value;
-    //使日期格式符合接口要求
-    if(month<10) month=0+month;
-    if(day<10) day=0+day;
-    var date=year+"-"+month+"-"+day;
-    setMap(date);
+//初始化
+layui.use('laydate', function(){
+    var laydate = layui.laydate;
+     
+    //执行一个laydate实例
+    laydate.render({
+        elem: '#time', //指定元素
+        value:new Date()
+        ,done: function(value, date, endDate){//控件选择完毕后的回调---点击日期、清空、现在、确定均会触发。
+            console.log(value); //得到日期生成的值，如：2017-08-18
+            console.log(date); //得到日期时间对象：{year: 2017, month: 8, date: 18, hours: 0, minutes: 0, seconds: 0}
+            console.log(endDate); //得结束的日期时间对象，开启范围选择（range: true）才会返回。对象成员同上。
+            setMap(dateFormat());
+            setChart();
+            setBoxs();
+        }
+    })
+});
+
+//返回选项框的日期
+function dateFormat(){
+   return document.getElementById("time").value;
+
 }

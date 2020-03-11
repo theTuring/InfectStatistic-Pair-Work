@@ -72,7 +72,8 @@ function setMap(date){
         myChart.on('click', function (params) {
             var pro=document.getElementById("province");
             pro.innerHTML=params.name;
-            setChart(params.name);
+            setChart();
+            setBoxs();
         });
 
       
