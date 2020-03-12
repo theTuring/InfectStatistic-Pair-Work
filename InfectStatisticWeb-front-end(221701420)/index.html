@@ -22,8 +22,9 @@
     <script type="text/javascript" src="script/commons/timeSet.js"></script>
 
     <div id="main">
+        <div id="nationInfo">全国情况</div>
         <div class="apart">
-            <h2>全国情况</h2>
+            
             <div id="nationData" class="boxs">
                 
                 <div class="box">
@@ -56,15 +57,15 @@
                     <div id="nationCumulativeDead"></div>
                 </div>
             </div>
-            <button onclick='changeMap("累计确诊")'>累计确诊</button>
-            <button onclick='changeMap("现有确诊")'>现有确诊</button>
+            <button onclick='changeMap("累计确诊")' id="cumulativeBnt" class="bnt">累计确诊</button>
+            <button onclick='changeMap("现有确诊")' id="existBnt" class="unclick">现有确诊</button>
             <div id="map">
     
             </div>
         </div>
-       
+        <div id="province">福建</div>
         <div class="apart">
-            <div id="province">福建</div>
+            
             <div id="provinceData" class="boxs">
                 <div class="box">
                     <div>现有确诊</div>
@@ -86,15 +87,16 @@
                     <div id="provinceCumulativeDead"></div>
                 </div>
             </div>
+            <p class="nowData">当前统计图显示数据:</p>
             <input id="chartName"  type="text" disabled="disabled" value="新增感染者">
             <div id="chart">
                 
             </div>
             <div id="fourBnts">
-                <button onclick='changeChart("新增感染者")'>新增感染者</button>
-                <button onclick='changeChart("累计感染者")'>累计感染者</button>
-                <button onclick='changeChart("治愈")'>治愈</button>
-                <button onclick='changeChart("死亡")'>死亡</button>
+                <button onclick='changeChart("新增感染者")' class="bnt">新增感染者</button>
+                <button onclick='changeChart("累计感染者")' class="bnt">累计感染者</button>
+                <button onclick='changeChart("治愈")' class="bnt">治愈</button>
+                <button onclick='changeChart("死亡")' class="bnt">死亡</button>
             </div>
         </div>
         

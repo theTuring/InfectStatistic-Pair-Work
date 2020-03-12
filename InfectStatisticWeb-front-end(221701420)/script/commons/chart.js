@@ -139,7 +139,7 @@ function setChart(set){
         //x轴数据设定
         option.xAxis.data = xAxisData;
         myChart.setOption(option);
-    })
+    });
    
 
    
