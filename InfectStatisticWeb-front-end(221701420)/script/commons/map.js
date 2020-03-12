@@ -1,15 +1,25 @@
-function setMap(date){
+function setMap(set){
     //
     var myChart = echarts.init(document.getElementById('map'));
-    if(date==undefined) date='2020-03-10';
+    var date=dateFormat();
     //根据日期获取全国各省的情况
     axios.get('http://47.95.3.253:8080/InfectStatistic//api/query/province/date/'+date)
     .then(function (response) {
         var dataList=new Array();
-        for(var i=0;i<34;i++){
-            dataList[i]={
-                name:response.data.data[i].province,
-                value:response.data.data[i].current_diagnosis
+        if(set=='现有确诊'){
+            for(var i=0;i<34;i++){
+                dataList[i]={
+                    name:response.data.data[i].province,
+                    value:response.data.data[i].current_diagnosis
+                }
+            }
+        }
+        else{
+            for(var i=0;i<34;i++){
+                dataList[i]={
+                    name:response.data.data[i].province,
+                    value:response.data.data[i].cumulative_diagnosis
+                }
             }
         }
         //console.log(dataList);

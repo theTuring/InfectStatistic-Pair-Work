@@ -23,32 +23,41 @@
 
     <div id="main">
         <div class="apart">
+            <h2>全国情况</h2>
             <div id="nationData" class="boxs">
+                
                 <div class="box">
                     <div>现有确诊</div>
                     <div id="nationExistDiagnosis"></div>
                 </div>
+                <div class="line"></div>
                 <div class="box">
                     <div>现有疑似</div>
                     <div id="nationExistSuspects"></div>
                 </div>
+                <div class="line"></div>
                 <div class="box">
                     <div>现有重症</div>
                     <div id="nationExistSevere"></div>
                 </div>
+                <div class="line"></div>
                 <div class="box">
                     <div>累计确诊</div>
                     <div id="nationCumulativeDiagnosis"></div>
                 </div>
+                <div class="line"></div>
                 <div class="box">
                     <div>累计治愈</div>
                     <div id="nationCumulativeCure"></div>
                 </div>
+                <div class="line"></div>
                 <div class="box">
                     <div>累计死亡</div>
                     <div id="nationCumulativeDead"></div>
                 </div>
             </div>
+            <button onclick='changeMap("累计确诊")'>累计确诊</button>
+            <button onclick='changeMap("现有确诊")'>现有确诊</button>
             <div id="map">
     
             </div>
@@ -61,14 +70,17 @@
                     <div>现有确诊</div>
                     <div id="provinceExistDiagnosis"></div>
                 </div>
+                <div class="line"></div>
                 <div class="box">
                     <div>累计确诊</div>
                     <div id="provinceCumulativeDiagnosis"></div>
                 </div>
+                <div class="line"></div>
                 <div class="box">
                     <div>累计治愈</div>
                     <div id="provinceCumulativeCure"></div>
                 </div>
+                <div class="line"></div>
                 <div class="box">
                     <div>累计死亡</div>
                     <div id="provinceCumulativeDead"></div>
@@ -78,7 +90,7 @@
             <div id="chart">
                 
             </div>
-            <div>
+            <div id="fourBnts">
                 <button onclick='changeChart("新增感染者")'>新增感染者</button>
                 <button onclick='changeChart("累计感染者")'>累计感染者</button>
                 <button onclick='changeChart("治愈")'>治愈</button>

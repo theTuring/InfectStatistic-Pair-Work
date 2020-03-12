@@ -6,5 +6,9 @@ setChart();
 setBoxs();
 function changeChart(set){
     document.getElementById("chartName").value=set;
-    setChart();
+    setChart(set);
+}
+
+function changeMap(set){
+    setMap(set);
 }
