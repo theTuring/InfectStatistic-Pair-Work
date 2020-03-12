@@ -14,6 +14,7 @@ function setChart(set){
     if(day<10) day='0'+day;
     //访问接口的日期格式化
     var date1=date.getFullYear()+'-'+month+'-'+day;
+    
     var date2=dateFormat();
     //获取省份
     province=document.getElementById("province").innerHTML;

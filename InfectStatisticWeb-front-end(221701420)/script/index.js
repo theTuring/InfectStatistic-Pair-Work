@@ -14,13 +14,13 @@ function changeMap(set){
     if(set=="累计确诊"){
         document.getElementById("cumulativeBnt").removeAttribute("class");
         document.getElementById("existBnt").removeAttribute("class");
-        document.getElementById("cumulativeBnt").classList.add("bnt");
+        document.getElementById("cumulativeBnt").classList.add("click");
         document.getElementById("existBnt").classList.add("unclick");
     }
     else{
         document.getElementById("existBnt").removeAttribute("class");
         document.getElementById("cumulativeBnt").removeAttribute("class");
-        document.getElementById("existBnt").classList.add("bnt");
+        document.getElementById("existBnt").classList.add("click");
         document.getElementById("cumulativeBnt").classList.add("unclick");
     }
 }

@@ -5,19 +5,43 @@ html{
 body{
     margin: 0;
     padding: 0;
-    background-color: black;
+    background-color: #10aeb5;
     width: 100%;
-    background-image: url("../img/038613f55bba43b6ac7253f36120108.jpg");
+
+
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 #header{
-    width: 100%;
-    height: 300px;
+    width: 50%;
+    height: 187px;
+    background-size: 695px 189px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-image: url("../img/79cc66862a95704652df8c41b269afdd-1.png");
+    
+}
+#header>h3{
+    margin-left: 40px;
+    margin-top: 20px;
+    white-space: nowrap;
+    font-weight: 700;
+    color:#fff;
+    font-size: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+}
+#header>h4{
+    margin-top: 20px;
+    margin-left: 40px;
+    font-size: .875rem;
+    color:
+    #c4faff;
+    letter-spacing: .125rem;
 }
 #main{
-    width: 700px;
+    width: 50%;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -27,16 +51,18 @@ body{
     border-radius: 10px;
 }
 #map{
-    width:600px;
+    width:100%;
     height: 450px;
     margin-top: 10px;
     border-bottom: none;
-    background-color: white;
+    background-color: whitesmoke;
 }
 /*默认长宽比0.75*/
 #chart{
-    width:600px;
+    width:100%;
     height:450px;
+    background-color: whitesmoke;
+
 }
 #timeSet{
 
@@ -47,17 +73,20 @@ body{
 }
 
 .apart{
-    background-color: white;
-    border-radius: 10px;
+    width:100%;
+
+    background-color: whitesmoke;
+    border-radius: 20px;
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
 #province{
+    width: 50px;
     margin-top: 10px;
     text-align: center;
-    color: whitesmoke;
+    color: black;
     width: 50px;
-    background-color: #10aeb5;
+    background-color: whitesmoke;
     padding: 10px;
     font-size: 20px;
     border-top-left-radius:10px ;
@@ -71,19 +100,16 @@ body{
 }
 
 .bnt{
+    cursor: pointer;
     width: 24%;
     height: 50px;
-    background: #3498db;
-    background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-    background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-    background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-    background-image: -o-linear-gradient(top, #3498db, #2980b9);
-    background-image: linear-gradient(to bottom, #3498db, #2980b9);
-
-    font-family: Arial;
+    background: gray;
+    background-image: -webkit-linear-gradient(top, whitesmoke, #3498db);
+    background-image: -moz-linear-gradient(top, whitesmoke, #3498db);
+    background-image: -ms-linear-gradient(top, whitesmoke, #3498db);
+    background-image: -o-linear-gradient(top, whitesmoke, #3498db);
+    background-image: linear-gradient(to bottom, whitesmoke, #3498db);
     color: #ffffff;
-    font-size: 16px;
-    padding: 12px 30px 12px 30px;
     text-decoration: none;
     border: none;
 
@@ -118,4 +144,17 @@ body{
     border: none;
 }
 
-  
+.click{
+    cursor: pointer;
+    width: 24%;
+    height: 50px;
+    background: gray;
+    background-image: -webkit-linear-gradient(top, gray, whitesmoke);
+    background-image: -moz-linear-gradient(top, gray, whitesmoke);
+    background-image: -ms-linear-gradient(top, gray, whitesmoke);
+    background-image: -o-linear-gradient(top, gray, whitesmoke);
+    background-image: linear-gradient(to bottom, gray, whitesmoke);
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+}
