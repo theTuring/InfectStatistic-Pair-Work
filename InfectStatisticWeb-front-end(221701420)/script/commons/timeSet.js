@@ -13,6 +13,7 @@ layui.use('laydate', function(){
             setMap();
             setChart();
             setBoxs();
+            dataChange();
         }
     })
 });

@@ -4,9 +4,12 @@ var setTime=document.getElementById("timeSet");
 setMap();
 setChart();
 setBoxs();
+dataChange();
+
 function changeChart(set){
     document.getElementById("chartName").value=set;
     setChart(set);
+    
 }
 
 function changeMap(set){
