@@ -6,6 +6,7 @@ import com.springboot.domain.Province;
 import com.springboot.service.NationService;
 import com.springboot.service.ProvinceService;
 import com.springboot.utils.datetool.DateResult;
+import com.springboot.utils.jsontool.AnalysisJson;
 import com.springboot.utils.jsontool.JsonResult;
 import com.springboot.utils.urltool.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.UnsupportedEncodingException;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ import java.util.List;
  * GetController
  * TODO
  * @description 所有的get请求的接口
+ * 00./api/insert/province/all/date/{date} 初始化某一时间点所有的省份状态(后端测试用前端勿用)
  * 0./api/init/province/all/date/{date} 初始化某一时间点所有的省份状态(后端测试用前端勿用)
  * 1./api/query/nation/all 查询全部的国家统计信息
  * 2./api/query/province/all 查询全部的国家省份统计信息
@@ -52,6 +55,19 @@ public class GetController implements ProvinceConstant{
 
     @Autowired
     private ProvinceService provinceService;
+
+    //插入过去所有的省份状态
+    @RequestMapping("insert/province/all/date/{date}")
+    public JsonResult insertProvinceDateAll(@PathVariable String date) throws SQLException {
+
+
+        AnalysisJson analysisJson = new AnalysisJson();
+
+        analysisJson.execute(date);
+
+        return JsonResult.build(200,"success",null);
+
+    }
 
     //初始化所有的省份状态
     @RequestMapping("init/province/all/date/{date}")

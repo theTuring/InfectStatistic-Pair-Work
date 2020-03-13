@@ -57,8 +57,8 @@ public class InfectStatisticApplication extends SpringBootServletInitializer{
 //
 //            }
 //            // 表示在3秒之后开始执行，并且每8640秒（一天）执行一次
-//        }, 3000, 8640000);
-
+//        }, 3000, 1000 * 60 * 60 * 24);
+//
 
         SpringApplication.run(InfectStatisticApplication.class, args);
 
