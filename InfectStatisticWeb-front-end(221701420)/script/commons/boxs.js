@@ -1,5 +1,6 @@
 function setBoxs(){
     var date=dateFormat();
+
     axios.get('http://47.95.3.253:8080/InfectStatistic//api/query/nation/all')
     .then(function(response){
         for(var i=0;i<response.data.data.length;i++){
