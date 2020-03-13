@@ -1,5 +1,15 @@
 function dataChange(){
     var date=dateFormat();
+    if(date==''){
+        var temp=new Date();
+        var years=temp.getFullYear();
+        var month=temp.getMonth();
+        month++;
+        if(month<10) month='0'+month;
+        var days=temp.getDate();
+        if(days<10) days='0'+days;
+        date=years+'-'+month+'-'+days;
+    }
     axios.get('http://47.95.3.253:8080/InfectStatistic//api/query/nation/increase/'+date)
     .then(function (response) {
         document.getElementById("nationExistDiagnosisChange").innerHTML=response.data.data.current_diagnosis;
