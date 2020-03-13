@@ -1,7 +1,9 @@
 function setMap(set){
-    //
-    var myChart = echarts.init(document.getElementById('map'));
+
     var date=dateFormat();
+
+    var myChart = echarts.init(document.getElementById('map'));
+
     //根据日期获取全国各省的情况
     axios.get('http://47.95.3.253:8080/InfectStatistic//api/query/province/date/'+date)
     .then(function (response) {
@@ -89,6 +91,7 @@ function setMap(set){
       
     })
     .catch(function (error) {
+        console.log(date);
         console.log(error);
     });
 

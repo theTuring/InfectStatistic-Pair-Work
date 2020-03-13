@@ -20,5 +20,18 @@ layui.use('laydate', function(){
 
 //返回选项框的日期
 function dateFormat(){
-   return document.getElementById("time").value;
+    var date=document.getElementById("time").value;
+        //修理日期未生成时产生的接口访问错误bug
+
+    if(date==''){
+        var temp=new Date();
+        var years=temp.getFullYear();
+        var month=temp.getMonth();
+        month++;
+        if(month<10) month='0'+month;
+        var days=temp.getDate();
+        if(days<10) days='0'+days;
+        date=years+'-'+month+'-'+days;
+    }
+   return date;
 }
