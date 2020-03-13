@@ -1,7 +1,19 @@
 function setMap(set){
-    //
-    var myChart = echarts.init(document.getElementById('map'));
+
     var date=dateFormat();
+
+    var myChart = echarts.init(document.getElementById('map'));
+    //修理日期未生成时产生的接口访问错误bug
+    if(date==''){
+        var temp=new Date();
+        var years=temp.getFullYear();
+        var month=temp.getMonth();
+        month++;
+        if(month<10) month='0'+month;
+        var days=temp.getDate();
+        if(days<10) days='0'+days;
+        date=years+'-'+month+'-'+days;
+    }
     //根据日期获取全国各省的情况
     axios.get('http://47.95.3.253:8080/InfectStatistic//api/query/province/date/'+date)
     .then(function (response) {
@@ -89,6 +101,7 @@ function setMap(set){
       
     })
     .catch(function (error) {
+        console.log(date);
         console.log(error);
     });
 
